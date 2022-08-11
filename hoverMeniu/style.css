@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  background: #222222;
+}
+
+ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+ul li {
+  position: relative;
+  list-style: none;
+}
+ul li a {
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 1),
+    rgba(255, 0, 180, 1),
+    rgba(0, 100, 200, 1)
+  );
+  background-position: right -100% bottom 0;
+  background-size: 200% 100px;
+  background-repeat: no-repeat;
+  font-size: 1.2em;
+  text-decoration: none;
+  line-height: 1em;
+  text-transform: uppercase;
+  color: #bec4c2;
+  animation: in 0.5s;
+}
+ul li a:hover {
+  color: #fff;
+  animation: out 0.5s;
+}
+@keyframes in {
+  from {
+    background-position: left -100% bottom 0;
+    transition: background-position ease-out 0.5s;
+  }
+  to {
+    background-position: right -100% bottom 0;
+    transition: background-position ease-out 0.5s;
+  }
+}
+
+@keyframes out {
+  0% {
+    background-position: right -100% bottom 0;
+    transition: background-position ease-out 0.5s;
+  }
+  100% {
+    background-position: left -100% bottom 0;
+    transition: background-position ease-out 0.7s;
+  }
+}
+ul li a::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 1),
+    rgba(255, 0, 180, 1),
+    rgba(0, 100, 200, 1)
+  );
+  width: 0;
+  height: 2px;
+  right: 0;
+  bottom: -1px;
+  transition: ease-out 0.3s;
+  transition-delay: 0.3s;
+}
+ul li a:hover::after {
+  width: 100%;
+}
+/* a:hover::after {
+  transform: scale(0.5);
+} */
+
+/* a:hover::before {
+  background: #fd353f;
+  opacity: 1; 
+} */
+/* a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0%;
+  height: 5%;
+  background: red;
+  opacity: 0;
+  transition: 0.3s;
+}
+a:hover::after {
+  content: "";
+  width: 25%;
+  color: black;
+  opacity: 1;
+  transition-delay: 0.5s;
+} */
